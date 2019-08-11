@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: time_logger_production
-  username: time_logger
-  password: <%= ENV['TIME_LOGGER_DATABASE_PASSWORD'] %>
+  database: time_logger
+  username: deploy
+  password: 1234
