@@ -19,7 +19,6 @@ class AuthorizeUserService
 	end
 
 	def http_auth_header
-		binding.pry
 		if @headers['Authorization'].present?
 			return @headers['Authorization'].split(' ').last
 		else

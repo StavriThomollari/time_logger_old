@@ -57,9 +57,9 @@ group :development do
 end
 
 group :development, :production do
-  gem 'capistrano'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rails', require: false
+  gem 'capistrano', '~> 3.11'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rails', '~> 1.1', '>= 1.1.7', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
 end

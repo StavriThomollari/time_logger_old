@@ -3,7 +3,6 @@ class Api::ReportController < ApplicationController
   before_action :authorize_user
 
   def index
-    binding.pry
     reports = Report.joins(:project)
                     .group("projects.name")
                     .pluck("projects.name, 
@@ -22,7 +21,6 @@ class Api::ReportController < ApplicationController
   end
 
   def create
-    binding.pry
     report = Report.new(report_params.except(:email))
     report.user = @current_user
     report.save!
@@ -36,7 +34,6 @@ class Api::ReportController < ApplicationController
   end
 
   def authorize_user
-    binding.pry
 		@current_user = AuthorizeUserService.new(request.headers).authorize
 		render json: "Invalid credentials!" unless @current_user.present?
 	end

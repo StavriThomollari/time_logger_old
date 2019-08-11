@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :report do
     user
     project 
-    hours { Faker::Number.between(1,40) }
-    # created_at { Time.now - Faker::Number.between(1,40) }
+    hours { Faker::Number.between(from: 1, to: 40) }
   end
 end

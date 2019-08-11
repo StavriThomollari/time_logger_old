@@ -6,7 +6,6 @@ class Api::AuthenticationController < ApplicationController
 	# POST authenticate
 	# return user object and authentication token
 	def authenticate
-		binding.pry
 		user, auth_token = AuthenticateUserService.new(authentication_params[:email],
 			                                          authentication_params[:password])
 																								.authenticate

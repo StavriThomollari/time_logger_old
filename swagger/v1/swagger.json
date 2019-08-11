@@ -110,10 +110,10 @@
         ],
         "responses": {
           "200": {
-            "description": "name found"
+            "description": "reports found"
           },
           "404": {
-            "description": "pet not found"
+            "description": "reports not found"
           }
         }
       }

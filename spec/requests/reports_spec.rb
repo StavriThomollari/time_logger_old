@@ -18,9 +18,10 @@ RSpec.describe "Reports", type: :request do
   describe "POST /" do
     it "returns http success" do
       u = create(:user, email: "stavrithomollari@outlook.com", password: "f0d79d58", password_confirmation: "f0d79d58")
-      r = build(:report, user: u)
+      p = create(:project)
+      r = build(:report, user: u, project: p)
       before_count = Report.count
-      post api_path, params: { "project_id": r.project.id, "hours": r.hours }, as: :json, headers: RequestHelper.auth_headers(u)
+      post api_path, params: { "project_id": p.id, "hours": r.hours }, as: :json, headers: RequestHelper.auth_headers(u)
       expect(response).to have_http_status(:success)
       expect(Report.count).to eq(before_count + 1)
     end
