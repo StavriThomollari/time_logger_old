@@ -46,6 +46,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 # end
 
+gem 'rswag-api'
+gem 'rswag-ui'
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -55,7 +58,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :development, :production do
+group :development do
   gem 'capistrano', '~> 3.11'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rails', '~> 1.1', '>= 1.1.7', require: false
@@ -63,8 +66,12 @@ group :development, :production do
   gem 'capistrano-rvm'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'rswag-specs'
+end
+
 group :development, :test do
-  gem 'rswag'
   gem 'pry-rails'
   gem 'pry'
   gem 'pry-byebug'
