@@ -1,0 +1,22 @@
+<div class="col-sm-6">
+  <h2>New Report</h2>
+</div>
+
+<%= form_for :report, url: create_report_path(@report), method: :post do |f| %>
+  <%= f.hidden_field :user_id, { value: @user_id } %>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.text_field :hours, required: true, class: 'form-control', placeholder: "Number of hours"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.select :project_id, @projects.collect { |p| [ p.name, p.id ] } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.submit class: 'btn btn-info'  %>
+    </div>
+  </div>
+<% end %>

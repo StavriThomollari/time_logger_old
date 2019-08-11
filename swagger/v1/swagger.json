@@ -1,0 +1,130 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/authenticate": {
+      "post": {
+        "summary": "Authentificate",
+        "tags": [
+          "Authentification"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "credentials",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "credentials": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Authentificated"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/": {
+      "post": {
+        "summary": "Creates a report",
+        "tags": [
+          "Reports"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hours": {
+                  "type": "string"
+                },
+                "project_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hours",
+                "project_id",
+                "user_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "report created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/reports": {
+      "get": {
+        "summary": "Retrieves all reports",
+        "tags": [
+          "Reports"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "name found"
+          },
+          "404": {
+            "description": "pet not found"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "description": "...",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
