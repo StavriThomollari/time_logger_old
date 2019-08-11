@@ -10,7 +10,6 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'devise'
 gem 'jwt'
-gem 'rswag'
 
 
 # Use Puma as the app server
@@ -65,6 +64,7 @@ group :development, :production do
 end
 
 group :development, :test do
+  gem 'rswag'
   gem 'pry-rails'
   gem 'pry'
   gem 'pry-byebug'
