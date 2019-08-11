@@ -4,6 +4,10 @@ lock "~> 3.11.0"
 set :application, "time_logger"
 set :repo_url, "https://github.com/StavriThomollari/time_logger.git"
 
+set :default_env, {
+  "RAILS_ENV" => "production",
+  "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
+}
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
